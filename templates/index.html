@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Scrape</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    
+    <!-- Nasa News -->
+    
+    <!-- <ul style="list-style: none;">
+        
+      </ul> -->
+    <div class="row" id="news_clip">
+      <div class="col-md-12">
+        
+        <h3 class="heading">Latest Mars News</h3>
+        {% for x in range(0, 3): %}
+          <h4 class="heading">{{mars_db.nasa[x].date + ": " + mars_db.nasa[x].title}}</h4>
+          <p>{{mars_db.nasa[x].text}}</p> 
+        {% endfor %}
+      </div>
+
+      
+    </div>
+
+    <!-- JPL Image -->
+    <div class="row" id="jpl_image">
+      <div class="col-md-8">
+        <img src={{mars_db.jpl}} alt="mars image">
+      </div>
+
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-12" id="mars-weather">
+            <h3>Current Weather on Mars</h3>
+            <p>{{mars_db["mars weather"]}}</p>
+          </div>
+          <div class="col-md-12">
+            <div class="table">{{mars_db["mars facts"]| safe}}</div>
+            
+
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- Mars Weather -->
+
+    <!-- Mars Facs -->
+
+    <!-- Hemisphere Scrape -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Hemisphere Pics</h1>
+          <hr>
+      </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>{{mars_db["hemisphere images"][0].title}}</h4>
+        <img src={{mars_db["hemisphere images"][0].img_url}} alt={{mars_db["hemisphere images"][0].title}}>
+      </div>
+      <div class="col-md-6">
+        <h4>{{mars_db["hemisphere images"][1].title}}</h4>
+        <img src={{mars_db["hemisphere images"][1].img_url}} alt={{mars_db["hemisphere images"][1].title}}>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>{{mars_db["hemisphere images"][2].title}}</h4>
+        <img src={{mars_db["hemisphere images"][2].img_url}} alt={{mars_db["hemisphere images"][2].title}}>
+      </div>
+      <div class="col-md-6">
+        <h4>{{mars_db["hemisphere images"][3].title}}</h4>
+        <img src={{mars_db["hemisphere images"][3].img_url}} alt={{mars_db["hemisphere images"][3].title}}>
+      </div>
+    </div>
+
+
+    <div class="row" id="additional_news">
+      <div class="col-md-12">
+        
+        <h3 class="heading">Additional Mars News</h3>
+        
+          </div>
+            {% for x in range(3, 10) %}
+              <h4 class="heading">{{mars_db.nasa[x].date + ": " + mars_db.nasa[x].title}}</h4> 
+              <p>{{mars_db.nasa[x].text}}</p>
+            {% endfor %}
+          </div>
+
+  </div>
+</body>
+
+</html>

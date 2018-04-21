@@ -1,0 +1,15 @@
+
+
+img {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+}
+
+#mars-weather {
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	margin: 5px;
+}
+
